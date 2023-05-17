@@ -53,6 +53,21 @@ class MigrationData:
         self.emigrants = emigrants
 
 
+class MigrationDataProcessor:
+    @staticmethod
+    def calculate_annual_migration_change(immigrants: list[int], emigrants: list[int]) -> list[float]:
+        annual_change = []
+
+        for i in range(1, len(immigrants)):
+            change = ((immigrants[i] - emigrants[i]) - (immigrants[i - 1] - emigrants[i - 1])) / (
+                    (immigrants[i - 1] - emigrants[i - 1]) / 2) * 100
+            annual_change.append(change)
+
+        return annual_change
+
+
+
+
 
 class App(tk.Frame):
     def __init__(self, master=None):
