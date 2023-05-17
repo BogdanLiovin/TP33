@@ -66,7 +66,17 @@ class MigrationDataProcessor:
         return annual_change
 
 
+class MigrationDataVisualizer:
+    @staticmethod
+    def plot_migration_data(immigrants: list[int], emigrants: list[int], years: list[int]):
+        plt.plot(years, immigrants, label="Immigrants")
+        plt.plot(years, emigrants, label="Emigrants")
 
+        plt.xlabel("Year")
+        plt.ylabel("Number of people")
+        plt.title("Annual Migration")
+        plt.legend()
+        plt.show()
 
 
 class App(tk.Frame):
