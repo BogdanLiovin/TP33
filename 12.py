@@ -33,7 +33,18 @@ class DataProcessor:
         return gas_change
 
 
+class DataVisualizer:
+    @staticmethod
+    def plot_gas_emission_data(emission_data: GasEmissionData):
+        plt.plot(emission_data.year, emission_data.co2, label="CO2")
+        plt.plot(emission_data.year, emission_data.ch4, label="CH4")
+        plt.plot(emission_data.year, emission_data.n2o, label="N2O")
 
+        plt.xlabel("Year")
+        plt.ylabel("Gas Emissions (million metric tons of Carbon Dioxide equivalent)")
+        plt.title("Annual Greenhouse Gas Emissions")
+        plt.legend()
+        plt.show()
 
 
 class MigrationData:
